@@ -1,17 +1,14 @@
 package ifrn.pi.eventos.controllers;
 
 
-import ifrn.pi.eventos.models.Evento;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.jpa.repository.JpaRepository;
-import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
+
+import ifrn.pi.eventos.models.Evento;
 
 @Controller
 public class EventosController {
