@@ -5,9 +5,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
 public class indexController {
-@RequestMapping("/index")
+@RequestMapping("/")
 public String index() {
-	return "home";
+	return "readirect:/eventos";
 }
 
 	
