@@ -21,12 +21,12 @@ public class EventosController {
 	private JpaRepository er;
 	
 	
-	@GetMapping("/eventos/form")
+	@GetMapping("form")
 	public String form(Model model) {
 		return "eventos/formEvento"; 
 	}
 	
-	@PostMapping("/eventos")
+	@PostMapping
 	public String adicionar(Evento evento) {
 		System.out.println(evento);
 		er.save(evento);

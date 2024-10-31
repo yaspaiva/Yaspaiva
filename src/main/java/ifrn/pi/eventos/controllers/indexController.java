@@ -7,7 +7,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 public class indexController {
 @RequestMapping("/")
 public String index() {
-	return "readirect:/eventos";
+	System.out.println("Chamou o método index");
+	return "redirect:/eventos";
 }
 
 	
