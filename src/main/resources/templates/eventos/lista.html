@@ -1,49 +1,52 @@
 <!DOCTYPE html>
-<html>
+<html xmlns:th="http://www.thymeleaf.org">
 <head>
-    <meta charset="UTF-8">
-     <!-- Compiled and minified CSS -->
-    <link rel="stylesheet"
-     href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
-    <title>Eventos</title>
+<meta charset="UTF-8">
+<!-- Compiled and minified CSS -->
+<link rel="stylesheet"
+	href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+
+
+
+<title>Eventos</title>
 </head>
 <body>
-<div th:replace="~{menu :: menu}"></div>
-<div class="container">
+	<div th:replace="~{menu :: menu}"></div>
+	<div class="container">
 
-    
 
-   
-    <div>
-        <p th:text="${mensagem}"></p>
-    </div>
-    
-    <h1>Lista de  Eventos</h1>
-<table>
-
-<thead>
-
-<thead>
-<tr>
-<th>ID<th>
-<th>Nome do Evento<th>
-<th>Local <th>
-<th>Data<th>
-<th>Horário<th>
-<th>
-<tbody>
-<tr th:each="e :${eventos}">
-<td th:text="${e.id}"> 1<td>
-<td th:text="${e.nome}">aniversário de Yas<td>
-<td th:text="${e.local}">JUJU açaiteria<td>
-<td th:text="${e.data}">19/12/2024<td>
-<td th:text="${e.horario}">19:00<td>
-
-<tr>
+			<h1>Lista de eventos</h1>
+		<table>
+	<thead>
+	<tr>
+	<th>Id</th>
+	<th>Nome</th>
+	<th>Local</th>
+	<th>Data</th>
+	<th>Horario</th>
+	</tr>
+	</thead>
+	
+	<tbody>
+	<tr th:each="e : ${eventos}">
+		<td th:text="${e.id}">1</td>
+		<td>
+			<a th:href="@{/eventos/{id}(id=${e.id})}">
+				<span th:text="${e.nome}">Aniversário de RODRIGO</span>
+			</a>
+		</td>
+		<td th:text="${e.local}">If</td>
+		<td th:text="${e.data}">25/08/2024</td>
+		<td th:text="${e.horario}">19:45</td>
+	</tr>
 </tbody>
 
-</table>
-    
-    </div>
-</body>
-</html>
+	
+	</tbody>
+	
+	
+	</table>
+			
+		</div>
+	</body>
+	</html>
