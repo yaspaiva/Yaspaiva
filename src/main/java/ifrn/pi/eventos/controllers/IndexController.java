@@ -4,13 +4,10 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
-public class indexController {
-@RequestMapping("/")
+public class IndexController {
+	@RequestMapping("/")
 public String index() {
-	return "home";
+		System.out.println("chamou o método index");
+	return "redirect:/eventos";
 }
-
-	
-	
-	
 }
