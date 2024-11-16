@@ -86,17 +86,45 @@ public String salvarConvidado(@PathVariable Long idEvento, Convidado convidado) 
 	convidado.setEvento(evento);
 	
 	cr.save(convidado);
-	
-		
-	
-	
-
 	return "redirect:/eventos/{idEvento}";
-
-	
-	
-	
-	
 	
 }
+@GetMapping("/{id}/remover")
+public String apagarEvento(@PathVariable Long id) {
+	
+	Optional <Evento> opt = er.findById(id);
+	if(!opt.isEmpty()) {
+		Evento evento = opt.get();
+		
+		List<Convidado> convidados = cr.findByEvento(evento);
+		cr.deleteAll(convidados);
+		er.delete(evento);
+	}
+	return "redirect:/eventos";
+}
+
+@GetMapping("/{idEvento}/removerConvidado/{idConvidado}")
+public String removerConvidado(@PathVariable Long idEvento, @PathVariable Long idConvidado) {
+    // Encontrar o evento
+    Optional<Evento> optEvento = er.findById(idEvento);
+    if (optEvento.isEmpty()) {
+        return "redirect:/eventos";  
+    }
+
+    Evento evento = optEvento.get();
+    
+    // Encontrar o convidado
+    Optional<Convidado> optConvidado = cr.findById(idConvidado);
+    if (optConvidado.isEmpty()) {
+        return "redirect:/eventos" + idEvento;  
+    }
+
+    Convidado convidado = optConvidado.get();
+    
+    // Remover o convidado
+    cr.delete(convidado);
+    
+    return "redirect:/eventos/" + idEvento;  
+}
+
 }

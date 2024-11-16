@@ -28,7 +28,7 @@
 			</div>
 		</div>
 
-		<!-- Formulário para adicionar convidado -->
+		
 		<div class="row">
 			<div class="col s12">
 				<div class="card">
@@ -50,7 +50,7 @@
 				</div>
 		
 
-		<!-- Lista de convidados -->
+		
 		<div class="row">
 			<div class="col s12">
 				<div class="card">
@@ -65,11 +65,14 @@
 								</tr>
 							</thead>
 							<tbody>
-								<!-- Aqui você pode iterar sobre os convidados usando Thymeleaf -->
+								
 								<tr th:each="c : ${convidados} ">
 									<td th:text="${c.id}">1</td>
 <td th:text="${c.nome}">Yasmim</td>
 <td th:text="${c.rg}">123456789</td>
+<td>
+<a th:href="@{/eventos/{idEvento}/removerConvidado/{idConvidado}(idEvento=${evento.id}, idConvidado=${c.id})}" class="btn red">Deletar</a>
+</td>
 								</tr>
 								
 								
