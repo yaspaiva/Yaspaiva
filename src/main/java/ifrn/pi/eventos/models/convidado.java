@@ -54,6 +54,5 @@ public class Convidado {
 	public void setEvento(Evento evento) {
 		this.evento = evento;
 	}
-	
 
 }

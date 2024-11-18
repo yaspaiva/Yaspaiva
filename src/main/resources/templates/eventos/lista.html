@@ -5,8 +5,7 @@
 <!-- Compiled and minified CSS -->
 <link rel="stylesheet"
 	href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
-<link href="https://fonts.googleapis.com/icon?family=Material+Icons"
-	rel="stylesheet">
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 
 
 
@@ -40,8 +39,10 @@
 					<td th:text="${e.local}">If</td>
 					<td th:text="${e.data}">25/08/2024</td>
 					<td th:text="${e.horario}">19:45</td>
-					<td><a th:href="@{/eventos/{id}/remover(id=${e.id})}">
-							 <i class="material-icons">delete</i></a></td>
+					<td>
+					<a  th:href="@{/eventos/{id}/selecionar(id=${e.id})}"><i class="material-icons">edit</i></a>
+					<a th:href="@{/eventos/{id}/remover(id=${e.id})}"> <i class="material-icons">delete</i></a>
+					</td>
 				</tr>
 			</tbody>
 
